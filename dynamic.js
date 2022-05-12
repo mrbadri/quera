@@ -1,6 +1,7 @@
 /* write your code here ... */
 
 // variables
+// --- data
 let en = {},
   fa = {},
   games = {};
@@ -20,14 +21,18 @@ const $btnsSlider = document.querySelectorAll("nav ul li button");
 async function handler({
   lg = localStorage.getItem("lg") || "en",
   getData = false,
-}) {
-  const $btnSliderActive = document.querySelector("nav ul li button.active");
-
+} = {}) {
+  // fetch data
   if (getData) await fetchData();
 
+  // convert data
   const dataSliders = convertData({ en, fa, games });
-  const dataActiveSlide = handleSlider(dataSliders, $btnSliderActive);
 
+  // get data actve slide
+  let numberActiveSlide = localStorage.getItem("numberActiveSlide") || 0;
+  const dataActiveSlide = dataSliders[numberActiveSlide];
+
+  handleBtnActive();
   handleDirection(lg);
   handleStyles(dataActiveSlide);
   fillContent(dataActiveSlide, lg);
@@ -74,12 +79,6 @@ function convertData({ en, fa, games }) {
   return data;
 }
 
-function handleSlider(data, $btn) {
-  let numberActiveSlide = Number($btn.innerHTML.trim()[1]);
-
-  return data[numberActiveSlide - 1];
-}
-
 function fillContent(data, lg) {
   $heading.innerHTML = data.heading[lg];
   $description.innerHTML = data.description[lg];
@@ -93,6 +92,18 @@ function handleStyles(data) {
   $callToAction.style.backgroundColor = styleCallToAction.backgroundColor;
   $callToAction.style.color = styleCallToAction.color;
   $cover.src = data.styles.cover.image;
+}
+
+function handleBtnActive() {
+  const numberActiveSlide = Number(localStorage.getItem("numberActiveSlide"));
+
+  $btnsSlider.forEach(($btn) => {
+    $btn.classList.remove("active");
+
+    if (numberActiveSlide + 1 == $btn.innerHTML.trim()[1]) {
+      $btn.classList.add("active");
+    }
+  });
 }
 
 function handleDirection(lg) {
@@ -115,15 +126,18 @@ $changeLanguage.addEventListener("click", (e) => {
   handler({ lg });
 });
 
-$btnsSlider.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    $btnsSlider.forEach((btn) => {
-      btn.classList.remove("active");
+$btnsSlider.forEach(($btn) => {
+  $btn.addEventListener("click", (e) => {
+    $btnsSlider.forEach(($_btn) => {
+      $_btn.classList.remove("active");
     });
+
+    const numberActiveSlide = e.target.innerHTML.trim()[1] - 1;
+    localStorage.setItem("numberActiveSlide", numberActiveSlide);
 
     e.target.classList.add("active");
 
-    handler({});
+    handler();
   });
 });
 

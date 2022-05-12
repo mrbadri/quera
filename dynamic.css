@@ -1,25 +1,30 @@
 nav {
-    border: 5mm inset white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 a {
-    background-color: darkcyan;
-    color: khaki;
-    box-shadow: 2mm 2mm 1cm white;
+  background-color: var(--color--nav-link-background);
+  color: var(--color--body-foreground);
+  text-decoration: none;
 
-    display: inline-block;
+  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
 
-    margin-bottom: 20px;
-    margin-right: 40px;
+  display: flex;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+a:hover {
+  background-color: var(--color--nav-link-background--hover);
 }
 
 img {
-    float: left;
-    margin-right: 10px;
-
-    width: 40px;
+  width: 40px;
 }
 
 p {
-    font-size: 8mm;
+  font-size: 1rem;
 }

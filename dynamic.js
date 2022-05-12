@@ -16,8 +16,6 @@ const $changeLanguage = document.querySelector(
 );
 const $btnsSlider = document.querySelectorAll("nav ul li button");
 
-// set localstorage
-
 // functions
 async function handler({
   lg = localStorage.getItem("lg") || "en",
@@ -108,7 +106,6 @@ function handleDirection(lg) {
 // events
 $changeLanguage.addEventListener("click", (e) => {
   let lg = localStorage.getItem("lg");
-  e.target.setAttribute("lg", lg);
 
   if (lg === "fa") lg = "en";
   else lg = "fa";

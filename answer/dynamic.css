@@ -1,0 +1,25 @@
+/* write your code here ... */
+html{
+    font-family:Merienda ;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color--body-background);
+    color: var(--color--body-foreground);
+}
+
+h1{
+    font-size: 4.8rem;
+}
+
+.heart {
+    color: transparent;
+}
+
+.heart:hover{
+    color: var(--color--heart-foreground--hover);
+}

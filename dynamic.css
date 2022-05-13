@@ -1,1 +1,91 @@
 /* write your code here ... */
+:root {
+  --height--input: 2rem;
+  --width--icon: 1.2rem;
+  --margin--icon: 0.5rem;
+  --space-left--label: calc(var(--width--icon) + var(--margin--icon));
+}
+
+body {
+  color: var(--color--body-foreground);
+}
+
+main {
+  display: flex;
+  flex-wrap: nowrap;
+
+  overflow: hidden;
+  width: 50rem;
+  border-radius: 0.2rem;
+}
+
+form {
+  width: 60%;
+  min-width: 60%;
+  padding: 2rem;
+}
+
+label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+label > span {
+  font-size: 0.8rem;
+  width: 100%;
+  padding-left: var(--space-left--label);
+}
+
+label > img {
+  width: var(--width--icon);
+  margin-right: var(--margin--icon);
+}
+
+label > input {
+  background-color: var(--color--form-input-background);
+  color: var(--color--body-foreground);
+
+  height: var(--height--input);
+  border: none;
+  border-radius: 0.1rem;
+  padding: 0 0.5rem;
+
+  flex-grow: 1;
+}
+
+label > input:invalid {
+  background-color: var(--color--form-input-background--invalid);
+}
+
+label > input:focus {
+  outline: none;
+}
+
+button {
+  background-color: var(--color--form-button-background);
+  color: var(--color--form-button-foreground);
+
+  width: calc(100% - var(--space-left--label));
+  height: var(--height--input);
+  margin-left: var(--space-left--label);
+}
+
+p {
+  color: var(--color--form-paragraph-foreground);
+}
+
+a {
+  color: var(--color--form-link-foreground);
+  cursor: pointer;
+}
+
+section {
+  width: 40%;
+  padding: 2rem;
+}
+
+section > img {
+  width: 16rem;
+}

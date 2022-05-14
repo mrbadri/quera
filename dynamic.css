@@ -17,6 +17,8 @@ main {
   overflow: hidden;
   width: 50rem;
   border-radius: 0.2rem;
+
+  scroll-behavior: smooth;
 }
 
 form {

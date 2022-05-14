@@ -29,14 +29,14 @@
                 <label>
                     <span>Phone</span>
                     <img src="./icons/phone.svg" alt="" />
-                    <input type="tel"/>
+                    <input type="tel" pattern="/^[0]{2}[9][8][9]|^[+][9][8][9]|^[0][9]/g"/>
                 </label>
                 <label>
                     <span>Password</span>
                     <img src="./icons/password.svg" alt="" />
                     <input type="password" />
                 </label>
-                <button>Register</button>
+                <button type="submit">Register</button>
                 <p>
                     Already have an account?
                     <a href="#login">Log in</a>
@@ -56,7 +56,7 @@
                     <img src="./icons/password.svg" alt="" />
                     <input type="password"/>
                 </label>
-                <button>Login</button>
+                <button type="submit">Login</button>
                 <p>
                     Don't have an account?
                     <a href="#register">Register</a>

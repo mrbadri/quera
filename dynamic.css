@@ -66,6 +66,8 @@ label > input:focus {
 button {
   background-color: var(--color--form-button-background);
   color: var(--color--form-button-foreground);
+  border: none;
+  border-radius: 0.1rem;
 
   width: calc(100% - var(--space-left--label));
   height: var(--height--input);
@@ -74,6 +76,7 @@ button {
 
 p {
   color: var(--color--form-paragraph-foreground);
+  margin-left: var(--space-left--label);
 }
 
 a {

@@ -6,6 +6,7 @@ const $crosshair = document.querySelector(".crosshair");
 const $pistol = document.querySelector(".pistol img");
 
 // Events
+// --- on mouse move
 document.addEventListener("mousemove", (e) => {
   // Hanlde position crosshair
   $crosshair.style.setProperty("--x", `${e.pageX}px`);
@@ -16,12 +17,23 @@ document.addEventListener("mousemove", (e) => {
 
   const rotate = HandleRotate({ x: e.pageX - x, y: e.pageY - y });
   $pistol.style.transform = `rotate(${rotate}deg)`;
-  // console.log("rotate:", rotate);
 });
 
+// --- on click
+document.addEventListener("click", (e) => {
+  if (fireAccess(e.target)) {
+    console.log("run if");
+  }
+});
+
+// functions
 function HandleRotate({ x, y }) {
   let rotateRad = Math.atan2(y, x);
   let rotateDeg = (rotateRad * 180) / Math.PI;
 
   return Number(rotateDeg);
+}
+
+function fireAccess($target) {
+  return !$target.classList.contains("death-zone");
 }

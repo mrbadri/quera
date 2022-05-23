@@ -30,7 +30,7 @@ document.addEventListener("click", (e) => {
 
     setInterval(function () {
       positionX++;
-      $bullet.style.transform = `translate(${positionX}px `;
+      $bullet.style.transform = `translate(${positionX}px , 5px )`;
     }, 4);
 
     setTimeout(() => {
